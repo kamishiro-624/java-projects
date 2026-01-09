@@ -8,7 +8,7 @@ import java.util.*;
     @return  Valid user integer input 
 */
 
-public class integerInput
+public class IntegerInput
 {
     public static int promptInt(Scanner input, String prompt, int min, int max) {
         
@@ -18,18 +18,25 @@ public class integerInput
         boolean gaveValid = false;
         int returnValue = 0;
         
+        if (max <= min) {
+            throw new IllegalArgumentException("Maximum parameter (" + max + ") can not be equal to or less than minimum (" + min + ").");
+        }
+        
         while (!gaveValid) {
             if (input.hasNextInt()) {
                 returnValue = input.nextInt();
                 input.nextLine();
-                if (returnValue < min || returnValue > max) {
-                    System.out.println("[ERROR] The inputted value is invalid.");
+                if (returnValue < min) {
+                    System.out.println("[ERROR] The inputted value is less than the minimum. (" + returnValue + "<" + min + ")");
+                    System.out.print("> ");
+                } else if (returnValue > max) {
+                    System.out.println("[ERROR] The inputted value is greater than the maximum. (" + returnValue + ">" + max + ")");
                     System.out.print("> ");
                 } else {
                     gaveValid = true;
                 }
             } else {
-                System.out.println("[ERROR] The inputted value is invalid.");
+                System.out.println("[ERROR] The inputted value is not an integer.");
                 input.nextLine();
                 System.out.print("> ");
                 gaveValid = false;
