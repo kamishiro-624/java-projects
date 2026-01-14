@@ -10,7 +10,7 @@ public class seqTextReader
     
     public static void main(String[] args)
     {
-        double delay = 0.035 // 0.035 is default delay factor (seconds). line 44 used
+        double delay = 0.035; // 0.035 is default delay factor (seconds). line 44 used
         ArrayList<String> streamText = new ArrayList<String>();
         
         Scanner input = new Scanner(System.in);
@@ -20,7 +20,7 @@ public class seqTextReader
         String strSource = input.nextLine();
         clrConsole();
         
-        strSource.trim();
+        strSource = strSource.trim();
         
         while (strSource.contains(" ")) {
             for (int i = 0; i < strSource.length(); i++) {
