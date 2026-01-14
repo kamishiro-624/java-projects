@@ -1,5 +1,5 @@
-# java-utils
-Some Java util methods; feel free to leave any suggestions.
+# java-projects
+Some Java util methods and projeccts; feel free to leave any suggestions.
 
 <br><br>
 
